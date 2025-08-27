@@ -1,0 +1,190 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Financial Trading Platform Design System */
+
+@layer base {
+  :root {
+    /* Core Colors */
+    --background: 246 20% 98%;
+    --foreground: 215 25% 15%;
+    
+    /* Card & UI Elements */
+    --card: 0 0% 100%;
+    --card-foreground: 215 25% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 215 25% 15%;
+    
+    /* Financial Brand Colors */
+    --primary: 216 100% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 216 100% 94%;
+    
+    /* Trading Colors */
+    --profit: 142 76% 36%;
+    --profit-foreground: 0 0% 100%;
+    --profit-light: 142 76% 94%;
+    
+    --loss: 0 84% 60%;
+    --loss-foreground: 0 0% 100%;
+    --loss-light: 0 84% 94%;
+    
+    /* UI States */
+    --secondary: 215 20% 96%;
+    --secondary-foreground: 215 25% 15%;
+    
+    --muted: 215 20% 96%;
+    --muted-foreground: 215 16% 46%;
+    
+    --accent: 216 100% 94%;
+    --accent-foreground: 216 100% 50%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 215 20% 90%;
+    --input: 215 20% 90%;
+    --ring: 216 100% 50%;
+    
+    --radius: 0.75rem;
+    
+    /* Financial Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(216 100% 50%), hsl(216 100% 60%));
+    --gradient-success: linear-gradient(135deg, hsl(142 76% 36%), hsl(142 76% 46%));
+    --gradient-hero: linear-gradient(135deg, hsl(216 100% 50%) 0%, hsl(246 100% 60%) 100%);
+    
+    /* Shadows */
+    --shadow-financial: 0 4px 20px -2px hsl(216 100% 50% / 0.1);
+    --shadow-card: 0 2px 8px -2px hsl(215 25% 15% / 0.08);
+    
+    /* Animation Timing */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark Mode Colors */
+    --background: 215 28% 8%;
+    --foreground: 215 20% 95%;
+    
+    --card: 215 28% 10%;
+    --card-foreground: 215 20% 95%;
+    
+    --popover: 215 28% 10%;
+    --popover-foreground: 215 20% 95%;
+    
+    --primary: 216 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 216 100% 15%;
+    
+    --profit: 142 76% 46%;
+    --profit-foreground: 0 0% 100%;
+    --profit-light: 142 76% 15%;
+    
+    --loss: 0 84% 70%;
+    --loss-foreground: 0 0% 100%;
+    --loss-light: 0 84% 15%;
+    
+    --secondary: 215 28% 15%;
+    --secondary-foreground: 215 20% 95%;
+    
+    --muted: 215 28% 15%;
+    --muted-foreground: 215 20% 65%;
+    
+    --accent: 216 100% 15%;
+    --accent-foreground: 216 100% 60%;
+    
+    --destructive: 0 84% 70%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 215 28% 18%;
+    --input: 215 28% 15%;
+    --ring: 216 100% 60%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+  
+  /* Financial UI Enhancements */
+  .financial-gradient {
+    background: var(--gradient-primary);
+  }
+  
+  .success-gradient {
+    background: var(--gradient-success);
+  }
+  
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+}
+
+@layer components {
+  /* Financial Cards */
+  .financial-card {
+    @apply bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300;
+  }
+  
+  .metric-card {
+    @apply financial-card p-6 text-center;
+  }
+  
+  /* Trading Status Indicators */
+  .status-buy {
+    @apply bg-profit/10 text-profit border-profit/20;
+  }
+  
+  .status-sell {
+    @apply bg-loss/10 text-loss border-loss/20;
+  }
+  
+  /* Interactive Elements */
+  .interactive-hover {
+    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-lg;
+  }
+  
+  /* Financial Data Tables */
+  .data-table {
+    @apply w-full border-collapse bg-card rounded-lg overflow-hidden shadow-sm;
+  }
+  
+  .data-table th {
+    @apply bg-muted text-muted-foreground font-semibold px-4 py-3 text-left;
+  }
+  
+  .data-table td {
+    @apply px-4 py-3 border-t border-border;
+  }
+}
